@@ -131,7 +131,7 @@ def get_plt_jmp_addr_gcc64(funcea):
 
 def test_jmp():
     ea = 0x404078
-    print "OpTye: ", GetOpType(ea, 0)
+    print("OpTye: ", GetOpType(ea, 0))
     v_opnd1 = GetOperandValue(ea, 0)
     addr = GetFunctionAttr(v_opnd1, 0)
     if addr != BADADDR:
@@ -210,7 +210,7 @@ def generate_cg(funcea, block, func_info):
                             func_info['call'].append((block_start, ea, func_addr))
 
                 # elif text_start <= addr <= text_end:
-            	else:
+                else:
                     func_info['call'].append((block_start, ea, addr))
 
             else:
@@ -1010,7 +1010,7 @@ def get_cfg_block_info():
     # save_path = ARGV[1]
     # DEBUG
     # save_path = '/mnt/e/Ubuntu/work/binary_info/'
-    save_path = 'E:\IDABinaryInfo\\'
+    save_path = 'D:\\CTF\\shixi\\emtaint_dataset\\result\\'
 
     functions = get_all_functions()
     # function_names = get_function_names(functions)
@@ -1027,7 +1027,7 @@ def get_cfg_block_info():
     # json.dump(cfg_record, open(GetInputFile() + '_cfg.json', 'w'))
     # json.dump(blocks_record, open(GetInputFile() + '_block_info.json', 'w'))
 
-    print('\nExported cfg and block data entries.')
+    print('\nExported cfg and block data entries.\n Exported to %s_cfg.json and %s_block_info.json.\n' % (file_name, file_name))
 
 
 file_name = GetInputFile()

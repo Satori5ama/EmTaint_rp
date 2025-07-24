@@ -1906,7 +1906,10 @@ class EngineVEX(BinaryInfo):
         """
         Infer each variable's type in opnds according the variable type.
         """
-        # print("Infer variable type: %s with %s" % (opnds_info, var_type))
+        # 检查opnds_info的长度是否小于4
+        if len(opnds_info) < 4:
+            raise ValueError(f"opnds_info长度小于4，其值为: {opnds_info}")
+        
         op, opnds, opnds_size, opnds_type = opnds_info[0], opnds_info[1], opnds_info[2], opnds_info[3]
         opnd1, opnd2 = opnds
         opnd1_type, opnd2_type = opnds_type
