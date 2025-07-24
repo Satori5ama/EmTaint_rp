@@ -1910,18 +1910,18 @@ class EngineVEX(BinaryInfo):
         ################# DEBUG INFO #################
 
         # 将opnds_info写入/tmp文件夹下的文件中作为调试信息
-        try:
-            with open('/tmp/opnds_info_debug.txt', 'a') as f:
-                f.write(f"Infer variable type for opnds_info: {opnds_info}\n")
-        except Exception as e:
-            print(f"写入调试信息时出错: {e}")
-        
+        # try:
+        #     with open('/tmp/opnds_info_debug.txt', 'a') as f:
+        #         f.write(f"Infer variable type for opnds_info: {opnds_info}\n")
+        # except Exception as e:
+        #     print(f"写入调试信息时出错: {e}")
+
         ################# DEBUG INFO #################
         
         # 检查opnds_info的长度是否小于4
         if len(opnds_info) < 4:
-            raise ValueError(f"opnds_info长度小于4，其值为: {opnds_info}")
-        
+            # raise ValueError(f"opnds_info长度小于4，其值为: {opnds_info}")
+            return
 
         op, opnds, opnds_size, opnds_type = opnds_info[0], opnds_info[1], opnds_info[2], opnds_info[3]
         opnd1, opnd2 = opnds
