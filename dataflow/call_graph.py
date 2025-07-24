@@ -89,7 +89,8 @@ class CallGraph(CFGBase):
 
         if len(start_nodes) == 0:
             all_nodes = list(self.graph.nodes())
-            start_nodes.add(all_nodes[0])
+            if all_nodes:
+                start_nodes.add(all_nodes[0])
 
         return start_nodes
 
