@@ -1906,10 +1906,23 @@ class EngineVEX(BinaryInfo):
         """
         Infer each variable's type in opnds according the variable type.
         """
+     
+        ################# DEBUG INFO #################
+
+        # 将opnds_info写入/tmp文件夹下的文件中作为调试信息
+        try:
+            with open('/tmp/opnds_info_debug.txt', 'a') as f:
+                f.write(f"Infer variable type for opnds_info: {opnds_info}\n")
+        except Exception as e:
+            print(f"写入调试信息时出错: {e}")
+        
+        ################# DEBUG INFO #################
+        
         # 检查opnds_info的长度是否小于4
         if len(opnds_info) < 4:
             raise ValueError(f"opnds_info长度小于4，其值为: {opnds_info}")
         
+
         op, opnds, opnds_size, opnds_type = opnds_info[0], opnds_info[1], opnds_info[2], opnds_info[3]
         opnd1, opnd2 = opnds
         opnd1_type, opnd2_type = opnds_type
