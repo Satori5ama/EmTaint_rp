@@ -1,7 +1,14 @@
 #!/bin/bash
 
-main_file="/mnt/e/Ubuntu/work/dataflow/main.py"
-binary_path="/mnt/e/Ubuntu/work/binaries/"
+# 检查是否提供了足够的参数
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <main_file> <binary_path>"
+    exit 1
+fi
+
+# 从命令行参数中读取 main_file 和 binary_path
+main_file=$1
+binary_path=$2
 
 function analyze_binary(){
     for var in "--switch_check" "-i" "-t --resolve_icall 0" "-t"; do
