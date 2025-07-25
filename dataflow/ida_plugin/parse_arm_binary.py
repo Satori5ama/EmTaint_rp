@@ -1010,7 +1010,17 @@ def get_cfg_block_info():
     # save_path = ARGV[1]
     # DEBUG
     # save_path = '/mnt/e/Ubuntu/work/binary_info/'
-    save_path = 'D:\\CTF\\shixi\\emtaint_dataset\\result\\'
+    import datetime
+    import os
+
+
+    timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+
+    save_path = save_path = 'D:\\CTF\\shixi\\emtaint_dataset\\result\\{}\\'.format(timestamp)
+
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
 
     functions = get_all_functions()
     # function_names = get_function_names(functions)
