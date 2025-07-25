@@ -3698,8 +3698,8 @@ class BinaryParser(object):
 
         if isinstance(stmt.data, pyvex.expr.Binop):
             _op = stmt.data.op # TODO
-            # if _op in comparison_ops:
-            #     return None
+            if _op in comparison_ops:
+                return None
 
             for child_expr in stmt.data.child_expressions:
                 if (isinstance(child_expr, pyvex.expr.RdTmp) and
