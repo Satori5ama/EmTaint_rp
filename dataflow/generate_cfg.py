@@ -59,7 +59,12 @@ class FunctionCFG(CFGBase):
 
             self._translate_ida_block_to_irsb(ida_block, funcea)
 
-            jumpkind, exit_node = self._add_irsb_node_to_cfg(ida_block, icall_targets, resolved_icalls)
+            # modified
+            ret = self._add_irsb_node_to_cfg(ida_block, icall_targets, resolved_icalls)
+            if ret == None:
+                continue
+            jumpkind, exit_node = ret 
+            
             self.graph.add_node(exit_node)
 
             # print("%s contain %s" % (ida_block, ida_block.contain_blocks))
