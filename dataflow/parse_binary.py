@@ -55,7 +55,7 @@ class BinaryParser(object):
         # These ops are the type 'pyvex.expr.Binop'.
         self.complex_binops = []
         self.simple_binops = []
-        self.ignore_binops = ['Iop_Sar64', 'Iop_Shr64']
+        self.ignore_binops = ['Iop_Sar64', 'Iop_Shr64', 'Iop_Sar32', 'Iop_Shr32']
         self.add_binops = ['Iop_Add64']
         self.sub_binops = ['Iop_Sub64']
 
@@ -3694,7 +3694,7 @@ class BinaryParser(object):
         We only think about the first and second case. the third case (TODO)
         """
         use_flag = False
-        comparison_ops = ['Iop_CmpEQ64']
+        comparison_ops = ['Iop_CmpEQ64', 'Iop_CmpEQ32']
 
         if isinstance(stmt.data, pyvex.expr.Binop):
             _op = stmt.data.op # TODO

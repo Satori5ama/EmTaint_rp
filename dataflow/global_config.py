@@ -47,7 +47,7 @@ ls_ops = ['Load', 'Store']
 # These ops are the type 'pyvex.expr.Binop'.
 complex_binops = []
 simple_binops = []
-ignore_binops = ['Iop_Sar64', 'Iop_Shr64']
+ignore_binops = ['Iop_Sar64', 'Iop_Shr64', 'Iop_Sar32', 'Iop_Shr32']
 add_binops = ['Iop_Add64']
 sub_binops = ['Iop_Sub64']
 
