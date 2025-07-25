@@ -2804,6 +2804,19 @@ class AccurateDataFlow(EngineVEX):
     def _backward_execute_stmt2(self, block, action, code_location, backward_exprs):
         action_type = action.action_type
 
+        ################# DEBUG INFO #################
+        def debug():
+            import json
+            import datetime
+            # 添加调试信息
+            with open('/tmp/action_debug.json', 'a') as f:
+                f.write(f"########## DEBUG INFO at {datetime.datetime.now()} ##########\n")
+                json.dump(action.__dict__, f, indent=4)
+                f.write("\n") 
+        debug()
+
+        ################# DEBUG INFO #################
+        
         if action_type == 's':
             new_backward_exprs = self._backward_store_stmt(block, action, code_location, backward_exprs)
 
