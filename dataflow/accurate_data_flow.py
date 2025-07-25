@@ -2806,14 +2806,16 @@ class AccurateDataFlow(EngineVEX):
 
         ################# DEBUG INFO #################
         def debug():
-            import json
             import datetime
             # 添加调试信息
-            with open('/tmp/action_debug.json', 'a') as f:
+            with open('/tmp/action_debug.txt', 'a') as f:
                 f.write(f"########## DEBUG INFO at {datetime.datetime.now()} ##########\n")
-                json.dump(action.__dict__, f, indent=4)
-                f.write("\n") 
+                for key, value in action.__dict__.items():
+                    f.write(f"{key}: {value}\n")
+                f.write("\n")
+
         debug()
+
 
         ################# DEBUG INFO #################
         
